@@ -4,7 +4,7 @@ import { Activity, Heart, ShieldCheck } from 'lucide-react';
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="py-24 bg-white relative overflow-hidden">
+    <section id="about" className="py-24 bg-white relative overflow-hidden scroll-mt-32">
       {/* Decorative Background */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-sand-50/50 -skew-x-12 z-0"></div>
 

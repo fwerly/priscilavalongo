@@ -67,13 +67,13 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="col-span-1 md:col-span-2 order-1 md:order-2 h-[500px] md:h-[80vh] w-full relative"
+          className="col-span-1 md:col-span-2 order-1 md:order-2 h-[280px] md:h-[80vh] w-full relative"
         >
           <div className="relative rounded-2xl overflow-hidden shadow-2xl h-full w-full group">
              <img
               src="https://i.ibb.co/MxPcd5TG/topo.png"
               alt="Estúdio de Pilates - Visão Geral"
-              className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-[2s]"
+              className="absolute inset-0 w-full h-full object-cover object-right md:object-center transform group-hover:scale-105 transition-transform duration-[2s]"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent"></div>
           </div>

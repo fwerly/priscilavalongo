@@ -61,7 +61,7 @@ const ServiceDetails: React.FC = () => {
         <div 
           key={service.id} 
           id={service.id} 
-          className={`${service.bgColor} py-24 border-t border-sand-100 scroll-mt-20`}
+          className={`${service.bgColor} py-24 border-t border-sand-100 scroll-mt-32`}
         >
           <div className="container mx-auto px-6">
             <motion.div 

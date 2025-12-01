@@ -7,7 +7,6 @@ import ServiceDetails from './components/ServiceDetails';
 import Team from './components/Team';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import GeminiAssistant from './components/GeminiAssistant';
 
 function App() {
   return (
@@ -22,7 +21,6 @@ function App() {
         <Contact />
       </main>
       <Footer />
-      <GeminiAssistant />
     </div>
   );
 }

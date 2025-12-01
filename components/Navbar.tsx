@@ -8,7 +8,6 @@ const navItems: NavItem[] = [
   { label: 'A Clínica', href: 'about' },
   { label: 'Tratamentos', href: 'classes' },
   { label: 'Profissional', href: 'team' },
-  { label: 'Assistente Virtual', href: 'assistant' },
   { label: 'Agendar', href: 'contact' },
 ];
 
@@ -26,10 +25,17 @@ const Navbar: React.FC = () => {
 
   const scrollToSection = (sectionId: string) => {
     setIsOpen(false);
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
+  const handleNavClick = (e: React.MouseEvent, sectionId: string) => {
+    e.preventDefault();
+    scrollToSection(sectionId);
   };
 
   return (
@@ -39,31 +45,33 @@ const Navbar: React.FC = () => {
       }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <button onClick={() => scrollToSection('hero')} className="flex items-center gap-3 group outline-none">
+        <a href="#hero" onClick={(e) => handleNavClick(e, 'hero')} className="flex items-center gap-3 group outline-none">
           <img 
             src="https://i.ibb.co/B2HKKKSn/Whats-App-Image-2025-11-23-at-12-50-20.jpg" 
             alt="Priscila Valongo - Pilates e Fisioterapia" 
             className={`${isScrolled ? 'h-20 md:h-24' : 'h-28 md:h-48'} w-auto object-contain transition-all duration-300 group-hover:scale-105`} 
           />
-        </button>
+        </a>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6 lg:space-x-8 items-center">
           {navItems.map((item) => (
-            <button
+            <a
               key={item.label}
-              onClick={() => scrollToSection(item.href)}
-              className="text-sm font-medium text-slate-600 hover:text-brand-700 transition-colors uppercase tracking-wider text-[11px] outline-none"
+              href={`#${item.href}`}
+              onClick={(e) => handleNavClick(e, item.href)}
+              className="text-sm font-medium text-slate-600 hover:text-brand-700 transition-colors uppercase tracking-wider text-[11px] outline-none cursor-pointer"
             >
               {item.label}
-            </button>
+            </a>
           ))}
-          <button
-            onClick={() => scrollToSection('contact')}
-            className="px-6 py-2.5 bg-brand-600 text-white text-xs font-bold uppercase tracking-widest rounded-md hover:bg-brand-700 transition-all hover:shadow-lg outline-none"
+          <a
+            href="#contact"
+            onClick={(e) => handleNavClick(e, 'contact')}
+            className="px-6 py-2.5 bg-brand-600 text-white text-xs font-bold uppercase tracking-widest rounded-md hover:bg-brand-700 transition-all hover:shadow-lg outline-none cursor-pointer"
           >
             Marcação
-          </button>
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -87,13 +95,14 @@ const Navbar: React.FC = () => {
           >
             <div className="flex flex-col px-6 py-8 space-y-6">
               {navItems.map((item) => (
-                <button
+                <a
                   key={item.label}
-                  onClick={() => scrollToSection(item.href)}
-                  className="text-lg font-serif text-slate-700 hover:text-brand-700 text-center border-b border-sand-100 pb-2 outline-none"
+                  href={`#${item.href}`}
+                  onClick={(e) => handleNavClick(e, item.href)}
+                  className="text-lg font-serif text-slate-700 hover:text-brand-700 text-center border-b border-sand-100 pb-2 outline-none block cursor-pointer"
                 >
                   {item.label}
-                </button>
+                </a>
               ))}
             </div>
           </motion.div>

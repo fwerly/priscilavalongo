@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const Team: React.FC = () => {
   return (
-    <section id="team" className="py-24 bg-white">
+    <section id="team" className="py-24 bg-white scroll-mt-32">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto bg-sand-50 rounded-3xl overflow-hidden shadow-2xl border border-sand-100">
           <div className="flex flex-col md:flex-row">

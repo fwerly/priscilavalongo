@@ -1,7 +1,15 @@
 import React from 'react';
-import { Instagram, Facebook, Linkedin } from 'lucide-react';
+import { Instagram } from 'lucide-react';
 
 const Footer: React.FC = () => {
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <footer className="bg-slate-900 text-slate-300 py-16">
       <div className="container mx-auto px-6">
@@ -22,19 +30,19 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-white font-bold uppercase text-xs tracking-widest mb-6">Links Rápidos</h4>
             <ul className="space-y-3 text-sm">
-                <li><a href="#about" className="hover:text-brand-400 transition-colors">A Clínica</a></li>
-                <li><a href="#classes" className="hover:text-brand-400 transition-colors">Tratamentos</a></li>
-                <li><a href="#team" className="hover:text-brand-400 transition-colors">Corpo Clínico</a></li>
-                <li><a href="#contact" className="hover:text-brand-400 transition-colors">Agendamento</a></li>
+                <li><a href="#about" onClick={(e) => scrollToSection(e, 'about')} className="hover:text-brand-400 transition-colors cursor-pointer block">A Clínica</a></li>
+                <li><a href="#classes" onClick={(e) => scrollToSection(e, 'classes')} className="hover:text-brand-400 transition-colors cursor-pointer block">Tratamentos</a></li>
+                <li><a href="#team" onClick={(e) => scrollToSection(e, 'team')} className="hover:text-brand-400 transition-colors cursor-pointer block">Corpo Clínico</a></li>
+                <li><a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="hover:text-brand-400 transition-colors cursor-pointer block">Agendamento</a></li>
             </ul>
           </div>
 
           <div>
              <h4 className="text-white font-bold uppercase text-xs tracking-widest mb-6">Social</h4>
              <div className="flex space-x-4">
-                <a href="#" className="bg-slate-800 p-2 rounded-full hover:bg-brand-600 hover:text-white transition-all"><Instagram size={20} /></a>
-                <a href="#" className="bg-slate-800 p-2 rounded-full hover:bg-brand-600 hover:text-white transition-all"><Facebook size={20} /></a>
-                <a href="#" className="bg-slate-800 p-2 rounded-full hover:bg-brand-600 hover:text-white transition-all"><Linkedin size={20} /></a>
+                <a href="https://www.instagram.com/privalongofisio/" target="_blank" rel="noopener noreferrer" className="bg-slate-800 p-2 rounded-full hover:bg-brand-600 hover:text-white transition-all">
+                    <Instagram size={20} />
+                </a>
              </div>
           </div>
         </div>
